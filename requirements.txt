@@ -1,0 +1,7 @@
+grpcio
+sqlqalchemy
+aiogram
+aiogram_dialog
+asyncpg
+redis
+greenlet
