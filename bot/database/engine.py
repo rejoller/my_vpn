@@ -6,7 +6,7 @@ from database.models import Base
 DBURL=f'postgresql+asyncpg://{user}:{password}@{host}:{port}/{database}'
 
 
-engine = create_async_engine(DBURL, echo=False, pool_pre_ping = True)
+engine = create_async_engine(DBURL, echo=False, pool_pre_ping = True, pool_recycle=3600)
 session_maker = async_sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
 
 

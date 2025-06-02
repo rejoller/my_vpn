@@ -133,10 +133,14 @@ func addUser(email *C.char, id *C.char) *C.char {
 	})
 
 	if err != nil {
-		log.Fatalf("AlterInbound failed: %v", err)
+		log.Printf("AlterInbound failed: %v", err)
+		return C.CString(fmt.Sprintf("error: %v", err))
 	}
 
+	log.Println("User added successfully")
+
 	return C.CString(fmt.Sprintf("%v", resp))
+
 }
 
 func main() {

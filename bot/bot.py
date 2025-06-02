@@ -12,7 +12,7 @@ from logging_config import setup_logging
 from logging_middleware import LoggingMiddleware
 from users_middleware import UsersMiddleware
 import logging
-import asyncio
+from asyncio import run 
 
 
 async def main():
@@ -34,5 +34,5 @@ async def main():
     
     
 if __name__ == "__main__":
-    asyncio.run(main())
+    run(main())
     
