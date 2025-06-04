@@ -1,7 +1,9 @@
 grpcio
-sqlqalchemy
+sqlalchemy
 aiogram
 aiogram_dialog
 asyncpg
 redis
 greenlet
+icecream
+pytz

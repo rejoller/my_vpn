@@ -1,0 +1,21 @@
+[Unit]
+Description=VPN Telegram bot
+
+After=network.target nss-user-lookup.target
+
+[Service]
+Type=simple
+User=rejoller
+WorkingDirectory=/srv/vpn_bot/my_vpn
+ExecStart=/srv/vpn_bot/my_vpn/bot/.venv/bin/python /srv/vpn_bot/my_vpn/bot/bot.py
+
+Restart=always
+RestartSec=10s
+StandardOutput=file:/var/log/vpn_bot.log
+StandardError=file:/var/log/vpn_bot-error.log
+# При необходимости добавьте ограничения ресурсов или переменные окружения
+MemoryLimit=1000M
+# Environment="API_KEY=yourapikey" "ANOTHER_VAR=value"
+
+[Install]
+WantedBy=multi-user.target
