@@ -121,14 +121,15 @@ async def config_btn(callback: CallbackQuery, dialog_manager: DialogManager, *ar
         query = select(User.vpn_uuid).where(User.tg_user_id == int(callback.from_user.id))
         response = await session.execute(query)
         result = response.one()
-        
-        if not result:
-            await callback.answer('Сначала нужно купить подписку', show_alert=True)
+        ic(result)
+        if not result[0]:
+            await callback.answer('Сначала нужно купить подписку☝️😡', show_alert=True)
             return
         vpn_uuid = result[0]
         
         query = select(Server.address).where(Server.location == short_name_location)
         response = await session.execute(query)
+        
         address = response.one()[0]
         
 
